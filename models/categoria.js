@@ -11,11 +11,16 @@ const CategoriaSchema = Schema({
         default: true,
         required: true
     },
+    productos:{
+        type:Array,
+        default:[]
+    },
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
         required: true
-    }
+    },
+
 });
 
 

@@ -6,32 +6,33 @@ const ProductoSchema = Schema({
         required: [true , 'El nombre de la categoria es obligatorio'],
         unique: true
     },
-    estado: {
-        type: Boolean,
-        default: true,
-        required: true
+    precio: {
+        type: Number,
+        default: 0
+    },
+    descripcion: { 
+        type: String 
     },
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
         required: true
     },
-    precio: {
-        type: Number,
-        default: 0
-    },
     categoria: {
         type: Schema.Types.ObjectId,
         ref: 'Categoria',
         required: true
     },
-    descripcion: { 
-        type: String 
+    estado: {
+        type: Boolean,
+        default: true,
+        required: true
     },
     disponible: { 
-        type: Boolean, 
-        default: true },
-
+        type: Number,
+        required: true,
+        default: 0
+    },
 });
 
 

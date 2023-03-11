@@ -1,6 +1,6 @@
 const { request, response } = require('express');
 const Categoria = require('../models/categoria');
-
+const Producto = require('../models/producto');
 
 const getCategorias = async (req = request, res = response) => {
 
@@ -16,8 +16,7 @@ const getCategorias = async (req = request, res = response) => {
         listaCategorias
      });
 
-}
-
+};
 
 const getCategoriaPorID = async (req = request, res = response) => {
 
@@ -26,8 +25,7 @@ const getCategoriaPorID = async (req = request, res = response) => {
 
    res.status(201).json( categoriaById );
 
-}
-
+};
 
 const postCategoria = async (req = request, res = response) => {
     const nombre = req.body.nombre.toUpperCase();
@@ -46,12 +44,12 @@ const postCategoria = async (req = request, res = response) => {
     }
 
     const categoria = new Categoria(data);
+    
     await categoria.save();
 
     res.status(201).json(categoria);
 
-}
-
+};
 
 const putCategoria = async (req = request, res = response) => {
 
@@ -65,7 +63,7 @@ const putCategoria = async (req = request, res = response) => {
 
     res.status(201).json(categoriaEditada);
 
-}
+};
 
 const deleteCategoria = async (req = request, res = response) => {
 
@@ -75,8 +73,41 @@ const deleteCategoria = async (req = request, res = response) => {
 
     res.status(201).json(categoriaBorrada);
 
-}
+};
 
+const deleteCategoriad = async (req, res) => {
+    const categoriaPorDefecto = await Categoria.findOne({ nombre: "POR DEFECTO" });
+    const { id } = req.params;
+  
+    try {
+      // Encontrar la categoría que se desea eliminar
+      const categoria = await Categoria.findById(id);
+  
+      // Encontrar todos los productos que pertenecen a la categoría que se desea eliminar
+      const productos = await Producto.find({ categoria: categoria._id });
+  
+      // Establecer la categoría por defecto
+      const categoriaPorDefecto = await Categoria.findOne({ nombre: "POR DEFECTO" });
+        
+      if (!categoriaPorDefecto) {
+        return res.status(404).json({ msg: "Categoría por defecto no encontrada" });
+      }
+      
+      // Actualizar los productos que pertenecen a la categoría eliminada para que pertenezcan a la categoría por defecto
+      const promises = productos.map(async (producto) => {
+        producto.categoria = categoriaPorDefecto._id;
+        await producto.save();
+      });
+  
+      // Eliminar la categoría
+      await categoria.remove();
+  
+      res.json({ msg: "Categoría eliminada correctamente" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: "Error al eliminar la categoría" });
+    }
+};
 
 
 
@@ -85,5 +116,6 @@ module.exports = {
     getCategoriaPorID,
     postCategoria,
     putCategoria,
-    deleteCategoria
+    deleteCategoria,
+    deleteCategoriad
 }

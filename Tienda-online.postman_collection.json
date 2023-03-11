@@ -1,0 +1,854 @@
+{
+	"info": {
+		"_postman_id": "c74b6452-95c1-4eae-846c-a04782a3e8c7",
+		"name": "Tienda-online",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Get Mostrar Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/usuarios/mostrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"mostrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Agregar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Jefrey \",\r\n    \"correo\":\"jefrey@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"rol\":\"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/usuarios/agregar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"agregar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Editar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgxNDA3MzQsImV4cCI6MTY3ODE1NTEzNH0.tx09WW1gcXOqQU_rPtYewo47pyUV7MMVOI709Cc6h7M",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"64064397085b0afcd57a0ffe\",\r\n    \"nombre\":\"lopezzz\",\r\n    \"correo\":\"lopez@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"rol\":\"CLIENT_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/usuarios/editar/64064397085b0afcd57a0ffe",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"editar",
+								"64064397085b0afcd57a0ffe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Eliminar Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDM5NzA4NWIwYWZjZDU3YTBmZmUiLCJpYXQiOjE2Nzg0Njc1NDEsImV4cCI6MTY3ODQ4MTk0MX0.TbwdXBLyjX9T7bUx73TzKXBEk5_P6KgxfWme9CuZw3Q",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/usuarios/eliminar/640641041915fc8563991064",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"eliminar",
+								"640641041915fc8563991064"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Cliente su Cuenta",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDBiYjI3ZDkwN2FhNjVkZTVjODRhZTgiLCJpYXQiOjE2Nzg0ODg2NTgsImV4cCI6MTY3ODUwMzA1OH0.JEXZXdIOyRkjB4Qm-ALCmcPs1qPT4DhtuuL2fyC_Y1k",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"640bb314bc1a1261c14fdc4d\",\r\n    \"nombre\":\"francisco\",\r\n    \"correo\":\"francisco@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/usuarios/editarMiCuenta/640bb314bc1a1261c14fdc4d",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"editarMiCuenta",
+								"640bb314bc1a1261c14fdc4d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cliente su Cuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NjkwMTZlNTRhOGFlYWU5YzlhMzUiLCJpYXQiOjE2NzgxNDIyOTYsImV4cCI6MTY3ODE1NjY5Nn0.MI819fKWGBQXuSDRAFFND9yjsZXX_6AdvT4ZSf8YAUk",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/usuarios/eliminarMiCuenta/64064397085b0afcd57a0ffe",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuarios",
+								"eliminarMiCuenta",
+								"64064397085b0afcd57a0ffe"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MOSTRAR CARRITO",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgyMjU2NDgsImV4cCI6MTY3ODI0MDA0OH0.DWZo7lJR7UjYLbJP7JfsCi3DBG4W3UAGWZrWlXsNFPg",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/carrito/mostrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"mostrar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Get Mostrar Categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/categorias/mostrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categorias",
+								"mostrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/buscar/categorias/ABARROTES",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"buscar",
+								"categorias",
+								"ABARROTES"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Agregar Categoria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDBiYjI3ZDkwN2FhNjVkZTVjODRhZTgiLCJpYXQiOjE2Nzg0ODg3NTMsImV4cCI6MTY3ODUwMzE1M30.xDsD2jH61SInTf8EY2erK6t-cHQHa4RihINuk7dbI5c",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Botanas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/categorias/agregar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categorias",
+								"agregar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Editar Categoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgxNDY5NzksImV4cCI6MTY3ODE2MTM3OX0.wmujlGUyNrMSNPI36wLW8SrQPqLOTWjhJqpDFGal1ys",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Abarrotes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/categorias/editar/64067dc38deb3c7dcee1fd42",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categorias",
+								"editar",
+								"64067dc38deb3c7dcee1fd42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete EliminarFalse Categoria",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgxNDY5NzksImV4cCI6MTY3ODE2MTM3OX0.wmujlGUyNrMSNPI36wLW8SrQPqLOTWjhJqpDFGal1ys",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/categorias/eliminar/64067dc38deb3c7dcee1fd42",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categorias",
+								"eliminar",
+								"64067dc38deb3c7dcee1fd42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete EliminarDB Categoria",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgxOTk2NjEsImV4cCI6MTY3ODIxNDA2MX0.PLmq8MS9CcitPixhsbfybT6Ks_STOfsWGih1E9UIohQ",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/categorias/eliminarCate/640750d8d520e68e342341ae",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categorias",
+								"eliminarCate",
+								"640750d8d520e68e342341ae"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Get Mostrar Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos/mostrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"mostrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Productos Agotados",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgzODUxOTEsImV4cCI6MTY3ODM5OTU5MX0.-CRTwpIfGMd799IIOfFL42RgWd2mzM_7OGKi6EdU6V0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/productosAgotados",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"productosAgotados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Productos Mas Vendidos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDBiYzVmMWExYzNlYWNiODk0Y2VkZGEiLCJpYXQiOjE2Nzg0OTgwMDMsImV4cCI6MTY3ODUxMjQwM30.-6c28_s3Hv01eJ8BROYfpT74xTJ-31OlyEfGs9fatAE",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/productos/productosMasVendidos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"productosMasVendidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/buscar/productos/nueces",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"buscar",
+								"productos",
+								"nueces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Agregar Producto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgxNDk4NTEsImV4cCI6MTY3ODE2NDI1MX0.Ze33sew4SI4T32qaCBnaAvYlMPa2KnOZQvKKBSG8QPA",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Cereal\",\r\n    \"categoria\":\"64067dc38deb3c7dcee1fd42\",\r\n    \"precio\":\"27\",\r\n    \"descripcion\":\"Kellogs el mejor\",\r\n    \"disponible\":\"15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/agregar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"agregar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Editar Producto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgxNTQzMzgsImV4cCI6MTY3ODE2ODczOH0.4DQBpTTKVytzKIgFHlatAMUFKNZ6MV5ZS4zs5QrwBfI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Nueces y Semillas\",\r\n    \"categoria\":\"6406a1e96716cf5a97d632a1\",\r\n    \"precio\":\"2\",\r\n    \"descripcion\":\"Nueces ricos\",\r\n    \"disponible\":\"12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/editar/6406a21e6716cf5a97d632a7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"editar",
+								"6406a21e6716cf5a97d632a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Eliminar Producto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgxNTQzMzgsImV4cCI6MTY3ODE2ODczOH0.4DQBpTTKVytzKIgFHlatAMUFKNZ6MV5ZS4zs5QrwBfI",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/productos/eliminar/6406a21e6716cf5a97d632a7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"eliminar",
+								"6406a21e6716cf5a97d632a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Factura",
+			"item": [
+				{
+					"name": "Get Facturas Por Usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NjkwMTZlNTRhOGFlYWU5YzlhMzUiLCJpYXQiOjE2Nzg0MDI5NzgsImV4cCI6MTY3ODQxNzM3OH0.-Zv9WCXpTQxoCBQ50QONI5m1fhBe_WNdNYgKfsP7qlg",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/factura/facturas/640641041915fc8563991064",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"factura",
+								"facturas",
+								"640641041915fc8563991064"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Productos de Facturas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/factura/productoDeFactura/640a64ac253ea3bf271532d6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"factura",
+								"productoDeFactura",
+								"640a64ac253ea3bf271532d6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Factura",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NjkwMTZlNTRhOGFlYWU5YzlhMzUiLCJpYXQiOjE2Nzg0MDEwMzksImV4cCI6MTY3ODQxNTQzOX0.6CNqS_OupPBclil5dCSD6khC6pXtFZyNjHLqZ9Azkig",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/factura/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"factura",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Factura",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NjkwMTZlNTRhOGFlYWU5YzlhMzUiLCJpYXQiOjE2Nzg0NzAwMzUsImV4cCI6MTY3ODQ4NDQzNX0.29eUN3MUF9Ejm4yRRJUHr3SA6strRHudKgx2tN8wHfM",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{   \r\n     \"producto\": \"640a60d4da5bacc492eb800a\",\r\n     \"cantidad\": 2  \r\n}]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/factura/editar/640a60d4da5bacc492eb8009",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"factura",
+								"editar",
+								"640a60d4da5bacc492eb8009"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registrar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Eduardo \",\r\n    \"correo\":\"edu@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/usuarios/registrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usuarios",
+						"registrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\":\"jefrey@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST AGREGAR AL CARRITO",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgyMjY4MjksImV4cCI6MTY3ODI0MTIyOX0.ln_LvgBtMb4vd6d_sWRISwNEzBJvNImu4ZLCJC-Xo3U",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"producto\": \"6407b5a61cfc760c4898f09c\",\r\n    \"cantidad\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/carrito/agregar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "COMPRA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDA2NDEwNDE5MTVmYzg1NjM5OTEwNjQiLCJpYXQiOjE2NzgzOTcwNTEsImV4cCI6MTY3ODQxMTQ1MX0.6me8Wy7b-z0ZOZVzAJKdkZ4BaGibd8-TAEyFNvJxUYY",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/compra/comprar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"compra",
+						"comprar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

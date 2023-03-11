@@ -1,10 +1,9 @@
 const { request, response } = require('express');
-const { ObtectId } = require('mongoose').Types;
+const { ObjectId  } = require('mongoose').Types;
 
 const Usuario = require('../models/usuario');
 const Categoria = require('../models/categoria');
 const Producto = require('../models/producto');
-const categoria = require('../models/categoria');
 
 const coleccionesPermitidas = [
     'usuarios',
@@ -14,7 +13,7 @@ const coleccionesPermitidas = [
 ];
 
 const buscarUsuarios = async ( termino = '', res = response) => {
-    const esMongoID = ObtectId.isValid( termino );
+    const esMongoID = ObjectId.isValid( termino );
 
     if ( esMongoID ){
         const usuario = await Usuario.findById(termino);
@@ -36,13 +35,38 @@ const buscarUsuarios = async ( termino = '', res = response) => {
 
 }
 
+// const buscarCategorias = async (termino = '', res = response) => {
+//     const esMongoID = ObjectId.isValid( termino );
+    
+//     if (esMongoID) {
+//         const categoria = await Categoria.findById(termino)
+//         .populate('productos', 'nombre');
+//         return res.json({
+//             result: ( categoria ) ? [ categoria ] : []
+//         })
+//     }
+
+//     const regex = new RegExp (termino, 'i');
+
+//     const categorias = await Categoria.find({
+//         $or : [ { nombre: regex }],
+//         $and: [ { estado: true } ]
+//     })
+//     .populate('productos', 'nombre');
+//     res.json({
+//         results: categorias
+//     })
+// }
+
 const buscarCategorias = async (termino = '', res = response) => {
-    const esMongoID = ObtectId.isValid( termino );
+    const esMongoID = ObjectId.isValid( termino );
     
     if (esMongoID) {
-        const categoria = await Usuario.findById(termino);
+        const categoria = await Categoria.findById(termino);
+        const productos = await Producto.find({ categoria: categoria._id });
+        const productosNombres = productos.map(producto => producto.nombre);
         return res.json({
-            result: ( categoria ) ? [ categoria ] : []
+            result: ( categoria ) ? [ { ...categoria.toObject(), productos: productosNombres } ] : []
         })
     }
 
@@ -53,13 +77,20 @@ const buscarCategorias = async (termino = '', res = response) => {
         $and: [ { estado: true } ]
     })
 
+    const categoriasConProductos = await Promise.all(categorias.map(async (categoria) => {
+        const productos = await Producto.find({ categoria: categoria._id });
+        const productosNombres = productos.map(producto => producto.nombre);
+        return { ...categoria.toObject(), productos: productosNombres };
+    }));
+
     res.json({
-        results: categorias
+        results: categoriasConProductos
     })
 }
 
+
 const buscarProductos = async (termino = '', res = response )=>{
-    const esMongoID = ObtectId.isValid( termino );
+    const esMongoID = ObjectId.isValid( termino );
 
     if (esMongoID) {
         const producto = await Producto.findById(termino);
